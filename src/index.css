@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f0f4f8;
+    color: #1e293b;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f0f4f8; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #1565c0; }
+}
+
+/* ── Toast slide-in animation ────────────────────────────────────────────── */
+@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+.animate-slide-in { animation: slide-in 0.25s ease-out both; }
+
+/* ── Shake animation (login error) ──────────────────────────────────────── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-5px); }
+  75%       { transform: translateX(5px); }
+}
+.animate-shake { animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both; }
+
+/* ── MapLibre popup — light theme ────────────────────────────────────────── */
+.wf-maplibre-popup .maplibregl-popup-content {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  font-family: 'Inter', sans-serif;
+}
+.wf-maplibre-popup .maplibregl-popup-tip {
+  border-top-color:    #ffffff;
+  border-bottom-color: #ffffff;
+}
+.wf-maplibre-popup .maplibregl-popup-close-button {
+  color: #64748b;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px 8px;
+  top: 4px;
+  right: 4px;
+}
+.wf-maplibre-popup .maplibregl-popup-close-button:hover { color: #1e293b; }
+
+/* Popup inner layout helpers */
+.wf-popup { font-size: 12px; line-height: 1.6; color: #1e293b; }
+.wf-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+.wf-sub   { color: #475569; font-size: 11px; margin-bottom: 8px; }
+.wf-row   { display: flex; justify-content: space-between; gap: 12px; }
+.wf-row span { color: #64748b; white-space: nowrap; }
+.wf-row b { text-align: right; }
+.wf-divider { border: none; border-top: 1px solid #f1f5f9; margin: 8px 0; }
+.wf-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 6px; font-size: 11px; font-weight: 600;
+  color: #1565c0; text-decoration: none;
+  padding: 4px 8px; border-radius: 6px;
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  transition: background 0.15s;
+}
+.wf-link:hover { background: #dbeafe; }
